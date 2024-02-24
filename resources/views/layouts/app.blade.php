@@ -1,7 +1,6 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -9,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/images/bagong-pilipinas-logo.png">
+    <link rel="shortcut icon" href="{{ asset('applogo.png') }}">
 
     <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -24,6 +23,8 @@
     <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
     <link href="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+    <link href="assets/libs/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 </head>
 
     <body data-topbar="dark" data-sidebar="dark">
@@ -41,10 +42,10 @@
                         <div class="navbar-brand-box">
                             <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" alt="logo-sm-light" height="35">
+                                    <img src="applogo.png" alt="logo-sm-light" height="35">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" alt="logo-light" height="75">
+                                    <img src="applogo.png" alt="logo-light" height="50">
                                 </span>
                             </a>
                         </div>
@@ -154,40 +155,45 @@
                         <ul class="metismenu list-unstyled" id="side-menu">
 {{-- ADMIN SIDE --}}
                             @if (Auth::user()->is_admin == 1)
-                                <li class="menu-title">ADMIN</li>
+                                <li class="menu-title">Menu</li>
+
                                 <li>
-                                    <a href="{{ route('dashboard') }}" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Dashboard</span>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <span>ADMIN</span>
                                     </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="{{ route('dashboard') }}"><i class="ri-home-7-line"></i>Dashboard</a></li>
+                                        <li><a href="{{ route('users.admin') }}"><i class="ri-team-line"></i>Users</a></li>
+                                    </ul>
                                 </li>
 
-                                <li class="menu-title">DATA TABLE</li>
                                 <li>
-                                    <a href="{{ route('leave.admin') }}" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Application for Leave</span>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <span>PRODUCT INFO</span>
                                     </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="{{ route('brands.admin') }}"><i class="far fa-list-alt"></i></i>Brands</a></li>
+                                        <li><a href="{{ route('items.admin') }}"><i class="far fa-list-alt"></i>Items</a></li>
+                                        <li><a href="{{ route('suppliers.admin') }}"><i class="far fa-list-alt"></i>Suppliers</a></li>
+                                    </ul>
                                 </li>
+
                                 <li>
-                                    <a href="{{ route('cert.appearance.admin') }}" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Certificate of Appearance</span>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <span>DATA TABLE</span>
                                     </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="{{ route('inventories.admin') }}"><i class="mdi-form-select"></i>Inventories</a></li>
+                                        <li><a href="{{ route('stocks.admin') }}"><i class="mdi-form-select"></i>Stocks</a></li>
+                                    </ul>
                                 </li>
 {{-- USER SIDE --}}
                             @else
-                                <li class="menu-title">Form & Table</li>
+                                <li class="menu-title">DATA TABLE</li>
                                 <li>
-                                    <a href="{{ route('leave.user') }}" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Application for Leave</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('cert.appearance') }}" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Certificate of Appearance</span>
+                                        <span>NONE</span>
                                     </a>
                                 </li>
                             @endif
@@ -217,11 +223,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Bagong Pilipinas
+                                <script>document.write(new Date().getFullYear())</script> © IT Devs
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Developed by axi0MX
+                                    Developed by IT Devs
                                 </div>
                             </div>
                         </div>
@@ -265,6 +271,12 @@
         <script src="assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
         <script src="assets/js/pages/form-advanced.init.js"></script>
         <script src="assets/js/app.js"></script>
+        <script src="assets/libs/moment/min/moment.min.js"></script>
+        <script src="assets/libs/bootstrap-editable/js/index.js"></script>
+        <script src="assets/js/pages/form-xeditable.init.js"></script>
+        <script src="assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/pages/lightbox.init.js"></script>
 
+        @include('sweetalert::alert')
     </body>
 </html>

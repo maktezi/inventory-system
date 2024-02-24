@@ -23,8 +23,8 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="/" class="auth-logo">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" height="80" class="logo-dark mx-auto" alt="">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" height="80" class="logo-light mx-auto" alt="">
+                                    <img src="{{ asset('applogo.png') }}" height="80" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset('applogo.png') }}" height="80" class="logo-light mx-auto" alt="">
                                 </a>
                             </div>
                         </div>

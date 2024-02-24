@@ -3,40 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QrCodeController extends Controller
 {
 
-    public function show()
+    public function showQR()
     {
-        return QrCode::size(300)
+
+    $data = Stock::pluck('stocks')->first();
+
+    if (!empty($data)) {
+        return QrCode::size(200)
             ->style('dot')
             ->eye('circle')
-            // ->margin(1)
-            ->generate('DATA HERE',);
+            ->margin(1)
+            ->generate($data);
+    } else {
+        return "No data available for QR code generation.";
     }
-
-    // public function show($userId)
-    // {
-    //     // Retrieve the user data from the database
-    //     $user = User::find($userId);
-
-    //     // Check if the user exists
-    //     if (!$user) {
-    //         abort(404); // Or handle the case where the user doesn't exist
-    //     }
-
-    //     // Generate a QR code using the user's data
-    //     $qrcode = QrCode::size(300)
-    //         ->style('dot')
-    //         ->eye('circle')
-    //         // ->margin(1)
-    //         ->generate(json_encode($user)); // Encode user data as JSON
-
-    //     // Return the QR code image
-    //     return response($qrcode)->header('Content-Type', 'image/png');
-    // }
+    }
 
 }

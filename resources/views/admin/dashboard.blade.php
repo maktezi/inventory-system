@@ -18,13 +18,13 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-grow-1">
-                            <p class="text-truncate font-size-14 mb-2">Application for Leave</p>
-                            <h4 class="mb-2">{{ $totalLeave }}</h4>
+                            <p class="text-truncate font-size-14 mb-2">USERS</p>
+                            <h4 class="mb-2">{{ $totalUser }}</h4>
                             <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>Total</span></p>
                         </div>
                         <div class="avatar-sm">
                             <span class="avatar-title bg-light text-primary rounded-3">
-                                <a href="{{ route('leave.admin') }}" class="ri-user-3-line font-size-24"></a>
+                                <a href="{{ route('users.admin') }}" class="ri-user-3-line font-size-24"></a>
                             </span>
                         </div>
                     </div>
@@ -37,13 +37,70 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-grow-1">
-                            <p class="text-truncate font-size-14 mb-2">Certificate of Appearance</p>
-                            <h4 class="mb-2">{{ $totalAppearance }}</h4>
+                            <p class="text-truncate font-size-14 mb-2">BRANDS</p>
+                            <h4 class="mb-2">{{ $totalBrand }}</h4>
                             <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>Total</span></p>
                         </div>
                         <div class="avatar-sm">
                             <span class="avatar-title bg-light text-primary rounded-3">
-                                <a href="{{ route('cert.appearance.admin') }}" class="ri-user-3-line font-size-24"></a>
+                                <a href="{{ route('brands.admin') }}" class="ri-user-3-line font-size-24"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end cardbody -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <p class="text-truncate font-size-14 mb-2">ITEMS</p>
+                            <h4 class="mb-2">{{ $totalItem }}</h4>
+                            <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>Total</span></p>
+                        </div>
+                        <div class="avatar-sm">
+                            <span class="avatar-title bg-light text-primary rounded-3">
+                                <a href="{{ route('items.admin') }}" class="ri-user-3-line font-size-24"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end cardbody -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <p class="text-truncate font-size-14 mb-2">SUPPLIERS</p>
+                            <h4 class="mb-2">{{ $totalSupplier }}</h4>
+                            <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>Total</span></p>
+                        </div>
+                        <div class="avatar-sm">
+                            <span class="avatar-title bg-light text-primary rounded-3">
+                                <a href="{{ route('suppliers.admin') }}" class="ri-user-3-line font-size-24"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end cardbody -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <p class="text-truncate font-size-14 mb-2">INVENTORIES</p>
+                            <h4 class="mb-2">{{ $totalInventory }}</h4>
+                            <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>Total</span></p>
+                        </div>
+                        <div class="avatar-sm">
+                            <span class="avatar-title bg-light text-primary rounded-3">
+                                <a href="{{ route('inventories.admin') }}" class="ri-user-3-line font-size-24"></a>
                             </span>
                         </div>
                     </div>

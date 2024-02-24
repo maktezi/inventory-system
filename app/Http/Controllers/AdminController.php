@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Leave;
-use App\Models\Appearance;
+use App\Models\Item;
+use App\Models\User;
+use App\Models\Brand;
+use App\Models\Supplier;
+use App\Models\Inventory;
 
 class AdminController extends Controller
 {
@@ -15,9 +18,12 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $totalLeave = Leave::count();
-        $totalAppearance = Appearance::count();
-        return view('admin.dashboard',compact('totalLeave','totalAppearance'));
+        $totalUser = User::count();
+        $totalBrand = Brand::count();
+        $totalItem = Item::count();
+        $totalSupplier = Supplier::count();
+        $totalInventory = Inventory::count();
+        return view('admin.dashboard',compact('totalUser', 'totalBrand', 'totalSupplier', 'totalInventory', 'totalItem'));
     }
 
 }
